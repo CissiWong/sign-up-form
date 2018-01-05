@@ -34,7 +34,7 @@ Storing a password in the database in plain text is a massive security flaw. Any
 
 The only really secure way to handle passwords is not to store them at all, but since that's not an option, a common way to handle storing passwords is to encrypt the password string, and then store the encrypted string in the database. Instead of decrypting the password later, you just encrypt the password the user enters when trying to log in later and compare the two encrypted strings. This way, you can only guess the password through brute force instead of being able to just decrypt it and see what its original string was.
 
-Security and encryption is a huge, and very complicated topic and is beyond the scope of this bootcamp. For now, just use the example left for you in backend/server.js to deal with encrypting passwords before you persist them.
+Security and encryption is a huge, and very complicated topic and is beyond the scope of this bootcamp. In backend/server.js you'll find an example of using [bcrypt](https://www.npmjs.com/package/bcrypt-nodejs) to encrypt a password string and securely compare it to another string. This is a decent start which you can use in your endpoint without needing to read up on encryption ;)
 
 ### :books: Reading List
 
