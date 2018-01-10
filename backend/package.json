@@ -6,7 +6,8 @@
   "license": "MIT",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js --exec babel-node"
+    "start": "nodemon server.js --exec babel-node",
+    "lint": "eslint ."
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

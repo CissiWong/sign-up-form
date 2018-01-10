@@ -12,7 +12,8 @@ app.use(bodyParser.json())
 // Tells express to add the "Access-Control-Allow-Origin" header to allow requests from anywhere.
 app.use(cors())
 
-// Connect to MongoDB, on the "products-api" database. If the db doesn't exist, mongo will create it.
+// Connect to MongoDB, on the "products-api" database. If the db doesn't
+// exist, mongo will create it.
 mongoose.connect("mongodb://localhost/signup-form-api", { useMongoClient: true })
 
 // This makes mongo use ES6 promises, instead of its own implementation
