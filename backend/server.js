@@ -2,6 +2,7 @@ import mongoose from "mongoose"
 import express from "express"
 import bodyParser from "body-parser"
 import cors from "cors"
+import bcrypt from "bcrypt-nodejs"
 
 // Express setup, including JSON body parsing.
 const app = express()
