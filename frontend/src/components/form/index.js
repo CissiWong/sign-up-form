@@ -23,6 +23,11 @@ export default class Form extends React.Component {
     }).then(response => {
       return response.json()
     })
+    this.setState({
+      username: "",
+      email: "",
+      password: ""
+    })
   }
 
   addUsername = event => {
@@ -45,35 +50,27 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <form>
-        <label
-          className="username">
+      <form
+        onSubmit={this.handleSubmit}>
+        <label>
           <input
             value={this.state.username}
             onChange={this.addUsername}
-            type="text" />
-          <button
-            onClick={this.handleSubmit}
-            type="submit" />
-        </label>
-        <label className="email">
+            type="text"
+            required />
           <input
             value={this.state.email}
             onChange={this.addEmail}
-            type="text"
+            type="email"
             required />
-          <button
-            onClick={this.handleSubmit}
-            type="submit" />
-        </label>
-        <label
-          className="password">
           <input
             value={this.state.password}
             onChange={this.addPassword}
-            type="text" />
+            type="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Password must contain at least 8 characters, one uppercase, one lowercase and one symbol."
+            required />
           <button
-            onClick={this.handleSubmit}
             type="submit" />
         </label>
       </form>

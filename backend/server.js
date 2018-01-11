@@ -26,12 +26,18 @@ mongoose.connection.once("open", () => console.log("Connected to mongodb"))
 //
 // Define a model here.
 const Input = mongoose.model("Input", {
-  username: String,
+  username: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     required: true
   },
-  password: String
+  password: {
+    type: String,
+    required: true
+  }
 })
 
 // Example root endpoint to get started with
