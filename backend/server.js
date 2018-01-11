@@ -25,7 +25,24 @@ mongoose.connection.once("open", () => console.log("Connected to mongodb"))
 
 //
 // Define a model here.
-//
+const Input = mongoose.model("Input", {
+  username: String,
+  email: {
+    type: String,
+    required: true
+  },
+  password: String
+})
+
+app.post("/users", (req, res) => {
+  const user = new Input(req.body)
+
+  user.save().then(() => {
+    res.status(201).json({ message: "Added information" })
+  }).catch(err => {
+    res.status(400).json({ message: "No!", errors: err.errors })
+  })
+})
 
 // Example root endpoint to get started with
 app.get("/", (req, res) => {
