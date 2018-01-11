@@ -45,6 +45,12 @@ app.get("/", (req, res) => {
   res.send(`Signup form api. Here's an example of an encrypted password: ${hash}`)
 })
 
+app.get("/users", (req, res) => {
+  Input.find().then(allUsers => {
+    res.json(allUsers)
+  })
+})
+
 app.post("/users", (req, res) => {
   const user = new Input(req.body)
 
