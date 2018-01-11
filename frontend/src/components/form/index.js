@@ -51,28 +51,38 @@ export default class Form extends React.Component {
   render() {
     return (
       <form
-        onSubmit={this.handleSubmit}>
-        <label>
-          <input
-            value={this.state.username}
-            onChange={this.addUsername}
-            type="text"
-            required />
-          <input
-            value={this.state.email}
-            onChange={this.addEmail}
-            type="email"
-            required />
-          <input
-            value={this.state.password}
-            onChange={this.addPassword}
-            type="password"
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            title="Password must contain at least 8 characters, one uppercase, one lowercase and one symbol."
-            required />
-          <button
-            type="submit" />
-        </label>
+        onSubmit={this.handleSubmit} >
+        <div className="form-container">
+          <label>
+            <h1>Sign in</h1>
+            <div className="username">
+              <input
+                value={this.state.username}
+                onChange={this.addUsername}
+                type="text"
+                required />
+            </div>
+            <div className="email">
+              <input
+                value={this.state.email}
+                onChange={this.addEmail}
+                type="email"
+                required />
+            </div>
+            <div className="password">
+              <input
+                value={this.state.password}
+                onChange={this.addPassword}
+                type="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Password must contain at least 8 characters, one uppercase, one lowercase and one symbol."
+                required />
+            </div>
+            <button
+              className="submit-btn"
+              type="submit" />
+          </label>
+        </div>
       </form>
     )
   }
