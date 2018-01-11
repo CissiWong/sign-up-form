@@ -34,16 +34,6 @@ const Input = mongoose.model("Input", {
   password: String
 })
 
-app.post("/users", (req, res) => {
-  const user = new Input(req.body)
-
-  user.save().then(() => {
-    res.status(201).json({ message: "Added information" })
-  }).catch(err => {
-    res.status(400).json({ message: "No!", errors: err.errors })
-  })
-})
-
 // Example root endpoint to get started with
 app.get("/", (req, res) => {
   const password = "supersecretpassword"
@@ -53,6 +43,16 @@ app.get("/", (req, res) => {
   // bcrypt.compareSync("incorrectpassword", hash) // false
 
   res.send(`Signup form api. Here's an example of an encrypted password: ${hash}`)
+})
+
+app.post("/users", (req, res) => {
+  const user = new Input(req.body)
+
+  user.save().then(() => {
+    res.status(201).json({ message: "Added information" })
+  }).catch(err => {
+    res.status(400).json({ message: "No!", errors: err.errors })
+  })
 })
 
 // Add more endpoints here!

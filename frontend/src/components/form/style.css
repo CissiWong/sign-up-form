@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  height: 20px;
+  width: 20px;
+  padding: 20px;
+  background-color: red;
+}
