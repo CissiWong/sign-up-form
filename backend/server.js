@@ -58,7 +58,13 @@ app.get("/users", (req, res) => {
 })
 
 app.post("/users", (req, res) => {
-  const user = new Input(req.body)
+  const { password } = req.body
+  const hash = bcrypt.hashSync(password)
+  const user = new Input({
+    username: req.body.username,
+    email: req.body.email,
+    password: hash
+  })
 
   user.save().then(() => {
     res.status(201).json({ message: "Added information" })
