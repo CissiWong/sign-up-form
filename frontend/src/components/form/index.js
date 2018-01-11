@@ -57,6 +57,7 @@ export default class Form extends React.Component {
             <h1>Sign in</h1>
             <div className="username">
               <input
+                placeholder="username"
                 value={this.state.username}
                 onChange={this.addUsername}
                 type="text"
@@ -64,6 +65,7 @@ export default class Form extends React.Component {
             </div>
             <div className="email">
               <input
+                placeholder="email"
                 value={this.state.email}
                 onChange={this.addEmail}
                 type="email"
@@ -71,6 +73,7 @@ export default class Form extends React.Component {
             </div>
             <div className="password">
               <input
+                placeholder="password"
                 value={this.state.password}
                 onChange={this.addPassword}
                 type="password"
@@ -79,8 +82,10 @@ export default class Form extends React.Component {
                 required />
             </div>
             <button
+              text="sign up"
               className="submit-btn"
-              type="submit" />
+              type="submit">sign up
+            </button>
           </label>
         </div>
       </form>

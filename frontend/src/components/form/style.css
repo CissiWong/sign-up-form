@@ -1,15 +1,21 @@
 html {
   background-color: #dc6255;
+  font-family: 'Raleway', sans-serif;
 }
 
 button {
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  width: 150px;
-  padding: 20px;
-  background-color: red;
+  height: 40px;
+  width: 200px;
+  padding: 10px 32px;
+  background-color: white;
   border: 0;
+  margin-top: 10px;
+  border-radius: 2px;
+  color: #dc6255;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 label {
@@ -19,16 +25,49 @@ label {
   justify-content: center;
 }
 
+input, textarea, [contenteditable] {
+  caret-color: white;
+}
+
+input[type="text"] {
+  border-bottom: 0;
+}
+
+input[type="email"] {
+  border-bottom: 0;
+}
+
+
 input {
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding-left: 5px;
+  background-color: #dc6255;
+  border-radius: 2px;
   padding: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 20px;
-  width: 150px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  height: 40px;
+  width: 300px;
+}
+
+input[type="email"]:hover {
+  background-color: #df7368;
+}
+
+input[type="password"]:hover {
+  background-color: #df7368;
+}
+
+input[type="text"]:hover {
+  background-color: #df7368;
+}
+
+input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  padding-left: 5px;
 }
 
 .form-container {
@@ -42,6 +81,8 @@ input {
 }
 
 h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
   text-align: center;
   color: #fff;
