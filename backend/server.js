@@ -77,8 +77,20 @@ app.post("/users", (req, res) => {
     res.status(400).json({ message: "No!", errors: err.errors })
   })
 })
-//
-// app.get("/login",
+
+app.post("/login", (req, res) => {
+  Input.findOne({ username: req.body.username }).then(user => {
+    if (bcrypt.compareSync(req.body.password, user.password)) {
+      res.json({
+        message: "Success!",
+        accessToken: user.token,
+        userId: user.id
+      })
+    } else {
+      res.status(401).json({ message: "Authentication failure" })
+    }
+  })
+})
 
 const findUser = (req, res, next) => {
   Input.findById(req.params.id).then(user => {
@@ -94,9 +106,5 @@ const findUser = (req, res, next) => {
 // Add more endpoints here!
 
 app.use("/users/:id", findUser)
-
-app.get("/users/:id", (req, res) => {
-  res.json({ Welcome: req.user.username })
-})
 
 app.listen(8080, () => console.log("Products API listening on port 8080!"))
