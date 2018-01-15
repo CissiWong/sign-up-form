@@ -77,7 +77,7 @@ export default class Form extends React.Component {
                 value={this.state.password}
                 onChange={this.addPassword}
                 type="password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Password must contain at least 8 characters, one uppercase, one lowercase and one symbol."
                 required />
             </div>

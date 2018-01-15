@@ -2,6 +2,7 @@ import mongoose from "mongoose"
 import express from "express"
 import bodyParser from "body-parser"
 import cors from "cors"
+import uuid from "uuid/v4"
 import bcrypt from "bcrypt-nodejs"
 
 // Express setup, including JSON body parsing.
@@ -37,6 +38,10 @@ const Input = mongoose.model("Input", {
   password: {
     type: String,
     required: true
+  },
+  accessToken: {
+    type: String,
+    default: () => uuid()
   }
 })
 
@@ -72,7 +77,26 @@ app.post("/users", (req, res) => {
     res.status(400).json({ message: "No!", errors: err.errors })
   })
 })
+//
+// app.get("/login",
+
+const findUser = (req, res, next) => {
+  Input.findById(req.params.id).then(user => {
+    if (user.accessToken === req.headers.token) {
+      req.user = user
+      next()
+    } else {
+      res.status(401).send("Unauthorized")
+    }
+  })
+}
 
 // Add more endpoints here!
+
+app.use("/users/:id", findUser)
+
+app.get("/users/:id", (req, res) => {
+  res.json({ Welcome: req.user.username })
+})
 
 app.listen(8080, () => console.log("Products API listening on port 8080!"))
