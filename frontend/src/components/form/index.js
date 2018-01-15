@@ -54,7 +54,7 @@ export default class Form extends React.Component {
         onSubmit={this.handleSubmit} >
         <div className="form-container">
           <label>
-            <h1>Sign in</h1>
+            <h1>Sign up</h1>
             <div className="username">
               <input
                 placeholder="username"
